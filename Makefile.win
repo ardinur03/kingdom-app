@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = "../../../../../../FOLDER\ SMT\ 1-2/Sem\ 1&2\ Opal/Struktur\ Data\ dan\ Algoritma\ Praktek/Tugas\ Akhir/Project/Test/main.o"
-LINKOBJ  = "../../../../../../FOLDER SMT 1-2/Sem 1&2 Opal/Struktur Data dan Algoritma Praktek/Tugas Akhir/Project/Test/main.o"
+OBJ      = main.o
+LINKOBJ  = main.o
 LIBS     = -L"C:/Apps/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib32" -static-libgcc -m32
 INCS     = -I"C:/Apps/Dev-Cpp/TDM-GCC-64/include" -I"C:/Apps/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Apps/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
 CXXINCS  = -I"C:/Apps/Dev-Cpp/TDM-GCC-64/include" -I"C:/Apps/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Apps/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Apps/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
@@ -24,5 +24,5 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-"../../../../../../FOLDER\ SMT\ 1-2/Sem\ 1&2\ Opal/Struktur\ Data\ dan\ Algoritma\ Praktek/Tugas\ Akhir/Project/Test/main.o": ../../../../../../FOLDER\ SMT\ 1-2/Sem\ 1&2\ Opal/Struktur\ Data\ dan\ Algoritma\ Praktek/Tugas\ Akhir/Project/Test/main.cpp
-	$(CPP) -c "../../../../../../FOLDER SMT 1-2/Sem 1&2 Opal/Struktur Data dan Algoritma Praktek/Tugas Akhir/Project/Test/main.cpp" -o "../../../../../../FOLDER SMT 1-2/Sem 1&2 Opal/Struktur Data dan Algoritma Praktek/Tugas Akhir/Project/Test/main.o" $(CXXFLAGS)
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
