@@ -1,17 +1,17 @@
 # Project: KingdomApp
 # Makefile created by Embarcadero Dev-C++ 6.3
 
-CPP      = g++.exe
-CC       = gcc.exe
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = main.o
-LINKOBJ  = main.o
-LIBS     = -L"C:/Apps/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib32" -static-libgcc -m32
+OBJ      = main.o display.o header.o nbtreedn.o queue.o silsilah.o
+LINKOBJ  = main.o display.o header.o nbtreedn.o queue.o silsilah.o
+LIBS     = -L"C:/Apps/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib32" -static-libgcc -m32 -g3
 INCS     = -I"C:/Apps/Dev-Cpp/TDM-GCC-64/include" -I"C:/Apps/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Apps/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
 CXXINCS  = -I"C:/Apps/Dev-Cpp/TDM-GCC-64/include" -I"C:/Apps/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Apps/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Apps/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
 BIN      = KingdomApp.exe
-CXXFLAGS = $(CXXINCS) -m32
-CFLAGS   = $(INCS) -m32
+CXXFLAGS = $(CXXINCS) -m32 -g3
+CFLAGS   = $(INCS) -m32 -g3
 DEL      = C:\Apps\Dev-Cpp\devcpp.exe INTERNAL_DEL
 
 .PHONY: all all-before all-after clean clean-custom
@@ -26,3 +26,18 @@ $(BIN): $(OBJ)
 
 main.o: main.cpp
 	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+display.o: display.cpp
+	$(CPP) -c display.cpp -o display.o $(CXXFLAGS)
+
+header.o: header.cpp
+	$(CPP) -c header.cpp -o header.o $(CXXFLAGS)
+
+nbtreedn.o: nbtreedn.cpp
+	$(CPP) -c nbtreedn.cpp -o nbtreedn.o $(CXXFLAGS)
+
+queue.o: queue.cpp
+	$(CPP) -c queue.cpp -o queue.o $(CXXFLAGS)
+
+silsilah.o: silsilah.cpp
+	$(CPP) -c silsilah.cpp -o silsilah.o $(CXXFLAGS)

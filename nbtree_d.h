@@ -13,20 +13,21 @@ Last Update : 25-4-2020
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "header.h"
 
-typedef int nbType;		//boleh diganti char
-typedef struct TnbTreeNode *nbAddr;
+// typedef int nbType;		//boleh diganti char
+// typedef struct TnbTreeNode *nbAddr;
 
-typedef struct TnbTreeNode{
-	nbAddr fs; //First child
-	nbType info; 
-	nbAddr nb; //Next brother
-	nbAddr parent;
-}nbTreeNode;
+// typedef struct TnbTreeNode{
+// 	nbAddr fs; //First child
+// 	nbType info; 
+// 	nbAddr nb; //Next brother
+// 	nbAddr parent;
+// }nbTreeNode;
 
-struct nbTree{
-	nbAddr root;
-};
+// struct nbTree{
+// 	nbAddr root;
+// };
 
 /* ---------------- Konstruktor Tree ---------------- */
 void nbCreate(nbTree *x);
