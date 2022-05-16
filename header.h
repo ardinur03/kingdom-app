@@ -37,9 +37,9 @@ typedef struct TnbTreeNode{
 	nbAddr parent;
 }nbTreeNode;
 
-// struct nbTree{
-// 	nbAddr root;
-// };
+struct TreeSilsilah{
+	nbAddr root;
+};
 
 
 typedef struct tElmtList *address;

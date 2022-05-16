@@ -30,7 +30,7 @@ Last Update : 25-4-2020
 // };
 
 /* ---------------- Konstruktor Tree ---------------- */
-void nbCreate(nbTree *x);
+//void nbCreate(nbTree *x);
 //Membuat tree kosong (X.root=NULL)
 
 /* ---------------- Alokasi node baru Tree ---------------- */
@@ -38,7 +38,7 @@ nbAddr nbCNode(nbType X);
 //Alokasi untuk membuat node baru
 
 /* ---------------- Operasi-operasi Tree ---------------- */
-void nbInsert(nbTree *tRoot, nbAddr parent, nbType X);
+//void nbInsert(nbTree *tRoot, nbAddr parent, nbType X);
 // Menambah element pada node parent
 
 nbAddr nbSearch(nbAddr root, nbType src);
@@ -47,7 +47,7 @@ nbAddr nbSearch(nbAddr root, nbType src);
 void nbUpgrade(nbAddr *root);
 // Mengupgrade parent dari beberapa node. (digunakan pada proses penghapusan)
 
-void nbDelete(nbAddr *pDel, nbTree *pTree);
+//void nbDelete(nbAddr *pDel, nbTree *pTree);
 // Menghapus node tertentu dan jika node tersebut memiliki child, maka posisinya digantikan oleh fs dari node tsb
 
 int nbDepth(nbAddr root);

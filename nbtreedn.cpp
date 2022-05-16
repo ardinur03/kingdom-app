@@ -7,9 +7,9 @@ Last Update : 25-4-2020
 */
 #include "nbtree_d.h"
 
-void nbCreate(nbTree *x){// Create New Root
-	(*x).root=NULL;
-}
+// void nbCreate(nbTree *x){// Create New Root
+// 	(*x).root=NULL;
+// }
 
 // nb ref
 
