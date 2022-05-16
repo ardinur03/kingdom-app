@@ -27,9 +27,9 @@ int main()
 
 	Isi_Node_Silsilah(&Tree.root, "root", 'l', 21, "Protestan"); // root node
 	nbInsert(&Tree, nbSearch(Tree.root,"root"), "raja" , 'P', 68, "Protestan");
-	nbInsert(&Tree, nbSearch(Tree.root,"root"), "calon raja 1", 'P', 68, "Protestan");
-	nbInsert(&Tree, nbSearch(Tree.root,"calon raja 1"), "Anak calon raja 1", 'P', 68, "Protestan");
-	nbInsert(&Tree, nbSearch(Tree.root,"calon raja 1"), "Anak calon raja 1", 'P', 68, "Protestan");
+	nbInsert(&Tree, nbSearch(Tree.root,"root"), "Salaman", 'P', 68, "Protestan");
+	nbInsert(&Tree, nbSearch(Tree.root,"Salaman"), "Arthur", 'L', 68, "Protestan");
+	nbInsert(&Tree, nbSearch(Tree.root,"Salaman"), "Alice", 'P', 68, "Protestan");
 	nbInsert(&Tree, nbSearch(Tree.root,"root"), "calon raja 2", 'P', 68, "Protestan");
 	nbInsert(&Tree, nbSearch(Tree.root,"root"), "calon raja 3", 'P', 68, "Protestan");
 	nbInsert(&Tree, nbSearch(Tree.root,"root"), "calon raja 4", 'P', 68, "Protestan");
@@ -91,8 +91,19 @@ int main()
 				break;
 			}
 			gotoxy(100, 20);
+			// cetakSilsilah(Tree.root, str);
 			printf("Masukkan nama parent : ");
-			scanf("%s", parentTempInput);
+			fflush(stdin);
+			gets(parentTempInput);
+
+			// cek parent apakah ada
+			if (nbSearch(Tree.root, parentTempInput) == NULL)
+			{
+				gotoxy(100, 21);
+				printf("Parent tidak ditemukan");
+				getch();
+				break;
+			}
 			src = hitungAnak(Tree.root, parentTempInput);
 			if (src == NULL)
 			{
@@ -100,7 +111,7 @@ int main()
 				printf("Parent %s tidak memiliki anak", parentTempInput);
 				getch();
 				break;
-			}
+			} 
 			gotoxy(100, 21);
 			printf("Jumlah anak dari %s yaitu : %d", parentTempInput, src);
 			getch();

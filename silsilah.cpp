@@ -161,40 +161,14 @@ void InsertSilsilah(nbAddr *tr){
 
 	if(isSilsilahEmpty(*tr)){
 		gotoxy(100,20); 
-		printf("Nama : "); 
-		fflush(stdin);
-		gets(Nama);
-		gotoxy(100,21); printf("Jenis Kelamin : "); fflush(stdin);
-		scanf("%c",&jenis_kelamin);
-		gotoxy(100,22); printf("Tahun Lahir: "); fflush(stdin);
-		scanf("%d",&thLahir);
-        gotoxy(100,23); printf("Agama : "); fflush(stdin);
-		gets(Agama);
-		usia=getUsia(thLahir);
-		gotoxy(100,24) ;printf("Usia: %d",usia);
-		// insertion(Queue, Nama);
-		if(usia >= 11){
-			if(jenis_kelamin == 'L'||jenis_kelamin == 'l'){
-				gotoxy(100,25); printf("Karena Kerajaan Baru saja dibangun maka, %s Menjadi Raja\n",Nama);
-			}else if(jenis_kelamin == 'P'||jenis_kelamin == 'p'){
-				gotoxy(100,25); printf("Karena Kerajaan Baru saja dibangun maka, %s Menjadi Ratu\n",Nama);
-			}
-			Isi_Node_Silsilah(&TNode,Nama,jenis_kelamin,usia, Agama);
-			*tr = TNode;
-		}else{
-			gotoxy(100,25); printf("Karena Silsilah Kerajaan masih kosong\n");
-			gotoxy(100,26); printf("dan Raja yang ditambahkan tersebut belum berumur 11 tahun\n");
-			gotoxy(100,27); printf("maka tidak dapat ditambahkan ke dalam silsilah\n");
-			gotoxy(100,28); printf("Yang menjadi raja harus berumur lebih dari 11 tahun\n");
-		}
+		printf("Silsilah Belum Ada");
 	}else{
-		gotoxy(100,20); printf("Nama : "); fflush(stdin);
+		gotoxy(100,20); printf("Nama 			: "); fflush(stdin);
 		gets(Nama);
-		gotoxy(100,21); printf("Jenis Kelamin : ");	fflush(stdin);
+		gotoxy(100,21); printf("Jenis Kelamin   : "); fflush(stdin);
 		scanf("%c",&jenis_kelamin);
-		gotoxy(100,22); printf("Tahun Lahir: "); fflush(stdin);
-		scanf("%d",&thLahir);
-		usia=getUsia(thLahir);
+		gotoxy(100,22); printf("Umur		    : "); fflush(stdin);
+		scanf("%d",&usia);
 		gotoxy(100,23); printf("Usia: %d",usia);
         Isi_Node_Silsilah(&TNode,Nama,jenis_kelamin,usia, Agama);
 		// insertion(Queue, Nama);
@@ -219,14 +193,18 @@ void InsertSilsilah(nbAddr *tr){
 }
 
 // pre-order
+int iterasi = 20;
 void cetakSilsilah(nbAddr tr, char tab[]){
 	char tempTab[255];
 	strcpy(tempTab, tab);
 	strcat(tempTab, "-");
 	if (tr!=NULL){
+		
 		// root node jangan di tampilkan
 		if(strcmp(nama(tr), "root") != 0){
+			gotoxy(100,iterasi);
 			printf("%s%s\n",tab,tr->nama);
+			iterasi = iterasi + 1;
 		}
 		cetakSilsilah(tr->fs,tempTab);
 		cetakSilsilah(tr->nb,tab);
@@ -234,27 +212,27 @@ void cetakSilsilah(nbAddr tr, char tab[]){
 }
 
 int hitungAnak(nbAddr tree, nbType parent){
- TnbTreeNode *temp;
+	TnbTreeNode *temp;
+	int jumlah = 0;
+	if(!isTreeEmpty(tree)){
+		temp = Search(tree, parent);
+		// jika parent ditemukan
+		if (fs(temp) != NULL){
+			jumlah =jumlah +1;
+			temp = fs(temp);
+		}else{
+			return 0;
+		}
+		while (nb(temp) != NULL){
+			temp = nb(temp);
+			jumlah =jumlah +1;
 
- int jumlah = 0;
 
+		}
+		return jumlah;
+	} 
 
- if(!isTreeEmpty(tree)){
-	  temp = Search(tree, parent);
-  	if (fs(temp) != NULL){
-   		jumlah =jumlah +1;
-   		temp = fs(temp);
-  		}else{
-   			return 0;
-  		}
-  		while (nb(temp) != NULL){
-   			temp = nb(temp);
-   			jumlah =jumlah +1;
-  		}
-  	return jumlah;
-
- }
-  return 0;
+  return 77;
 }
 
 void urutanPewaris(nbAddr tr){

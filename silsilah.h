@@ -2,7 +2,6 @@
 #define silsilah_H
 #include "header.h"
 
-
 int tahun(); //mengambil data tahun saat ini
 int getUsia(int thLahir); //untuk menghitung usia 
 int isSilsilahEmpty(nbAddr tr); //cek Tree apakah kosong atau tidak
