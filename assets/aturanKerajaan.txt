@@ -1,0 +1,25 @@
+            +--------------------------------------------------------------+
+            |XXXXXXX      Aturan Hak Waris Kerajaan Kerajaan        XXXXXXX|
+            |XXXXX+--------------------------------------------------+XXXXX|
+            |XXX--------------------------------------------------------XXX|
+            |XX                                                          XX|
+            |X   1. Jika raja wafat, digantikan oleh anak laki-laki       X|
+            ++      paling tua                                            ++
+            ||   2. Jika raja wafat dan tidak memiliki anak laki laki     ||
+            ||      maka digantikan oleh anak perempuan paling tua        ||
+            ||   3. Jika raja tidak punya anak maka tahta digantikan      ||
+            ||      oleh :                                                ||
+            ||     - pertama, saudara laki - laki paling tua(jika ada)    ||
+            ||     - kedua, saudara perempuan paling tua                  ||
+            ||   4. Pewaris Kerajaan Harus berjenis kelamin Laki- laki    ||
+            ||   5. Pewaris tahta kerajaan takterkecuali harus beragama   ||
+            ||      Protestan                                             ||
+            ||   6. Jika kerajaan dalam keadaaan kosong ada 2 kemungkinan ||
+            ||     - Pertama, jika anggota kerajaan tersebut laki laki    ||
+            ||       maka akan langsung menjadi raja                      ||
+            ||     - Kedua, jika anggota kerajaan tersebut perempuan maka ||
+            ||       akan langsung menajadi Ratu                          ||
+            ||                                                            ||
+            |--------------------------------------------------------------|
+            |---|X            @copyright Copyright (c) 2022           X|---|
+            +--------------------------------------------------------------+

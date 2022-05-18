@@ -40,11 +40,4 @@ typedef struct TnbTreeNode{
 struct TreeSilsilah{
 	nbAddr root;
 };
-
-
-typedef struct tElmtList *address;
-typedef struct tElmtList{
-       nbType data;
-       address next;
-} Queue;
 #endif
