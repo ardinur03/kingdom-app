@@ -1,32 +1,19 @@
+/**
+ * @file silsilah.cpp
+ * @author
+ *  	- Irfan Khoirul - 211511017
+ *      - Muhamad Ardi Nur Insan - 211511022
+ * @description program : program ini menggunakan modul tugas praktikum SDA pada materi SDA Non Binary Tree 
+ * @version 0.1
+ * @date 2022-05-12
+ *
+ * @copyright Copyright (c) 2022
+ *
+ */
+
 #include "header.h"
 #include "silsilah.h"
 #include "display.h"
-
-int tahun()
-{
-	char buffer[100];
-	time_t v__lewatan_waktu;
-	struct tm *p__sekarang;
-	int year;
-
-	v__lewatan_waktu = time(NULL);
-	p__sekarang = localtime(&v__lewatan_waktu);
-	strftime(buffer, 100, "%Y \n", p__sekarang);
-	year = atoi(buffer);
-
-	return year;
-}
-
-int getUsia(int thLahir)
-{
-	int us;
-	int thNow;
-
-	thNow = tahun();
-	us = thNow - thLahir;
-
-	return us;
-}
 
 void Create_Node_Tree(nbAddr *tr)
 {
@@ -463,6 +450,7 @@ void nbLevelOrder(nbAddr root,int curLevel, int desLevel)
 		}
 	}
 }
+
 TnbTreeNode *SearchNode(TreeSilsilah tree, nbType nama)
 {
 	TnbTreeNode *node = tree.root;

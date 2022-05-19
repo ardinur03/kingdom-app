@@ -1,3 +1,16 @@
+/**
+ * @file display.cpp
+ * @author
+ *  	- Irfan Khoirul - 211511017
+ *      - Muhamad Ardi Nur Insan - 211511022
+ * @description program : 
+ * @version 0.1
+ * @date 2022-05-12
+ *
+ * @copyright Copyright (c) 2022
+ *
+ */
+
 #include "display.h"
 
 void gotoxy(short x, short y)
