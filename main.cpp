@@ -22,11 +22,11 @@ int main()
 	nbAddr src, deleteNode,PDel;
 	int pil;
 	char str[] = "\t";
-
+	
+	// add data ke node secara statis 
 	nbCreate(&Tree);
-
-	nbInsert(&Tree, NULL, "root", 'L', 80, "Protestan");					 // root
-	nbInsert(&Tree, nbSearch(Tree.root, "root"), "Charles", 'L', 63, "Protestan"); // Raja
+	nbInsert(&Tree, NULL, "root", 'L', 80, "Protestan"); // nb insert ini dinyatakan sebagai root
+	nbInsert(&Tree, nbSearch(Tree.root, "root"), "Charles", 'L', 63, "Protestan"); // nb insert ini dinyatakan sebagai Raja
 	nbInsert(&Tree, nbSearch(Tree.root, "Charles"), "Wales", 'L', 47, "Protestan"); 
 	nbInsert(&Tree, nbSearch(Tree.root, "Charles"), "William", 'L', 46, "Protestan");
 	nbInsert(&Tree, nbSearch(Tree.root, "root"), "George", 'L', 61, "Protestan");

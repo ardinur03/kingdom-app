@@ -8,7 +8,8 @@
  * @date 2022-05-12
  *
  * @copyright Copyright (c) 2022
- *
+ * @pembuat program Muhamad Ardi Nur Insan istanaDisplay, kingDisplay, boxMenuOutput
+                    Irfan Khoirul aturanDisplay
  */
 
 #include "display.h"
