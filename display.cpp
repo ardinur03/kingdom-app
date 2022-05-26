@@ -165,10 +165,31 @@ void boxMenuOutput(){
 	gotoxy(101, 9);
     printf("5. Turunkan Tahta Raja");
 	gotoxy(131, 5);
-	printf("6. Peraturan");
+	printf("6. Detail Anggota Kerajaan");
 	gotoxy(131, 6);
+	printf("7. Peraturan");
+	gotoxy(131, 7);
 	printf("0. Exit");
 	gotoxy(101, 12);
 	printf("Pilih: ");
 }
 
+int setTitleConsole(){
+   TCHAR szOldTitle[MAX_PATH];
+   TCHAR szNewTitle[MAX_PATH];
+
+   // Save current console title.
+
+   if( GetConsoleTitle(szOldTitle, MAX_PATH) )
+   {
+      // Build new console title string.
+
+      StringCchPrintf(szNewTitle, MAX_PATH, TEXT("Aplikasi Silsilah Kerajaan | Copyright Ardi - Irfan 2022"));
+     
+   }
+  		 // Set console title to new title
+      if(SetConsoleTitle(szNewTitle) )
+      {
+         return 1;
+      }
+}

@@ -17,7 +17,8 @@
 int main()
 {
 	ShowWindow(GetConsoleWindow(), SW_MAXIMIZE); // untuk memaxsimalisasi layar
-
+	setTitleConsole();
+	
 	TreeSilsilah Tree;
 	nbAddr src, deleteNode,PDel;
 	int pil;
@@ -27,14 +28,14 @@ int main()
 	nbCreate(&Tree);
 	nbInsert(&Tree, NULL, "root", 'L', 80, "Protestan"); // nb insert ini dinyatakan sebagai root
 	nbInsert(&Tree, nbSearch(Tree.root, "root"), "Charles", 'L', 63, "Protestan"); // nb insert ini dinyatakan sebagai Raja
-	nbInsert(&Tree, nbSearch(Tree.root, "Charles"), "Wales", 'L', 47, "Protestan"); 
+	nbInsert(&Tree, nbSearch(Tree.root, "Charles"), "Anne", 'P', 47, "Protestan"); 
 	nbInsert(&Tree, nbSearch(Tree.root, "Charles"), "William", 'L', 46, "Protestan");
 	nbInsert(&Tree, nbSearch(Tree.root, "root"), "George", 'L', 61, "Protestan");
 	nbInsert(&Tree, nbSearch(Tree.root, "George"), "Charlotte", 'P', 45, "Protestan");
 	nbInsert(&Tree, nbSearch(Tree.root, "root"), "Louis", 'L', 51, "Protestan");
 	nbInsert(&Tree, nbSearch(Tree.root, "root"), "Harry", 'L', 51, "Protestan");
-	nbInsert(&Tree, nbSearch(Tree.root, "Charlotte"), "Beatrice", 'p', 29, "Protestan");
-	nbInsert(&Tree, nbSearch(Tree.root, "Charlotte"), "Eugenie", 'P', 28, "Protestan");
+	nbInsert(&Tree, nbSearch(Tree.root, "George"), "Beatrice", 'p', 29, "Protestan");
+	nbInsert(&Tree, nbSearch(Tree.root, "George"), "Eugenie", 'P', 28, "Protestan");
 
 	for (;;)
 	{
@@ -95,6 +96,20 @@ int main()
 			getch();
 			break;
 		case 6:
+			system("cls");
+			kingDisplay();
+			boxMenuOutput();
+			gotoxy(0, 4);
+			detailAnggota(Tree.root);
+			boxMenuOutput();
+			if (isSilsilahEmpty(Tree.root))
+			{
+				printf("Silsilah Belum Dibuat");
+				getch();
+				break;
+			}
+			break;
+		case 7:
 			system("cls");
 			gotoxy(0, 4);
 			aturanDisplay();

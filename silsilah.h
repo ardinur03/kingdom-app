@@ -21,5 +21,6 @@ int nbDepth(nbAddr root);  // digunakan pada opsi delete
 void menuHitungAnak(nbAddr treeSilsilahTemp); // menu untuk menghitung anak
 int hitungAnak(nbAddr tree, nbType parent); //untuk menghitung jumlah anak
 void opsiDeleteAnggotaKerajaan(nbAddr treeSilsilahTemp, TreeSilsilah tree); // untuk menampilkan opsi dalam pendeletan anggota kerajaan dari raja ataupun saudara ataupu anak
+void detailAnggota(nbAddr tr); // untuk menampilkan detail anggota kerajaan
 
 #endif

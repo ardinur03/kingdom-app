@@ -269,6 +269,71 @@ void cetakSilsilah(nbAddr tr, char tab[])
 	}
 }
 
+void detailAnggota(nbAddr tr)
+{
+	nbAddr nm;
+	char namaTemp[255];
+	int i = 1;
+	if (isSilsilahEmpty(tr))
+	{
+		gotoxy(101, 20);
+		printf("Silsilah Belum Ada");
+	}
+	else
+	{
+		gotoxy(101, 14);
+		printf("Input Anggota Kerajaan ");
+		gotoxy(101, 16);
+		printf("Nama : ");
+		fflush(stdin);
+		gets(namaTemp);
+		if (Search(tr, namaTemp) == NULL)
+		{
+			gotoxy(101, 17);
+			printf("Nama tidak ada");
+			gotoxy(101, 18);
+			system("pause");
+		}
+		else
+		{
+
+			gotoxy(101, 14);
+			printf("Detail Identitas Kerajaan !");
+			gotoxy(101, 16);
+			printf("                                                ");
+			gotoxy(101, 17);
+			printf("Nama              : %s", namaTemp);
+			gotoxy(101, 18);
+			printf("Jenis Kelamin     : %c", jenis_kelamin(Search(tr, namaTemp)));
+			gotoxy(101, 19);
+			printf("Usia              : %d", usia(Search(tr, namaTemp)));
+			gotoxy(101, 20);
+			printf("Agama             : %s", religion(Search(tr, namaTemp)));
+			gotoxy(101, 21);
+			nm = parent(Search(tr, namaTemp));
+			if (nm != NULL)
+			{
+				if(strcmp(nama(nm), "root"))
+				{
+					printf("Parent            : %s", nama(nm));
+				} else if(!strcmp(nama(tr->fs), namaTemp)){
+					if(jenis_kelamin(tr->fs) == 'L'){
+						printf("Status            : RAJA ");
+					} else if(jenis_kelamin(tr->fs) == 'P'){
+						printf("Status            : RATU ");
+					}
+				} else {
+					printf("%s adalah saudara dari raja ", namaTemp);
+				}
+			}
+
+			gotoxy(101, 25);
+			system("pause");
+		}
+	}
+
+}
+
 int hitungAnak(nbAddr tree, nbType parent)
 {
 	TnbTreeNode *temp;
@@ -310,7 +375,7 @@ void urutanPewaris(nbAddr tr)
 	{
 		gotoxy(105, 15);
 		printf("Data Pewaris Tahta");
-		// check apakah ada first son atau tidak
+		// check apakah ada first son atau 
 		if (fs(tr) != NULL)
 		{
 			while (parent(tr) != NULL || visit)
@@ -320,9 +385,9 @@ void urutanPewaris(nbAddr tr)
 					tr = fs(tr);
 					gotoxy(105, 17 + i);
 					if(jenis_kelamin(tr) == 'L' && i == 1){
-						printf("%d. %s   -  RAJA ", i, nama(tr), fs(tr)->jenis_kelamin);
+						printf("%d. %s   -  RAJA ", i, nama(tr));
 					} else if(jenis_kelamin(tr) == 'P' && i == 1){
-						printf("%d. %s   -  RATU ", i, nama(tr), fs(tr)->jenis_kelamin);
+						printf("%d. %s   -  RATU ", i, nama(tr));
 					} else {
 						printf("%d. %s", i, nama(tr));
 					}
@@ -485,14 +550,14 @@ void nbDelete(nbAddr *pDel, TreeSilsilah *pTree){
 // Delete Raja and Upgrade
 void nbDelete2(nbAddr *pDel, TreeSilsilah *pTree){
 	nbAddr pCur;
-	pCur=*pDel;
+	pCur = *pDel;
 
-	if (pCur==pTree->root && pCur->fs==NULL){
+	if (pCur == pTree->root && pCur->fs==NULL){
 		pTree->root=NULL;
 		return;
 	}
 
-	while(pCur->fs!=NULL)
+	while(pCur->fs != NULL)
 		pCur=pCur->fs;
 
 	while (pCur!=*pDel){
@@ -510,124 +575,7 @@ void nbDelete2(nbAddr *pDel, TreeSilsilah *pTree){
 		pCur->fs->parent=pCur->parent;
 	if (pCur->parent==NULL)
 		pTree->root=pCur;
-}
-
-//*
-void nbDelete(TreeSilsilah *tree, nbType pTree)
-{
-	TnbTreeNode *pSearch, *temp, *pDelete, *raja;
-	pSearch = SearchNode(*tree, pTree);
-	raja = tree->root;
-
-	if (pSearch == NULL)
-	{
-		gotoxy(100, 20);
-		printf("Nama tidak ditemukan");
-	}
-	else
-	{
-		if (fs(pSearch) == NULL && nb(pSearch) == NULL)
-		{
-			if (pSearch == tree->root)
-			{
-				tree->root = NULL;
-			}
-			else
-			{
-				if (parent(pSearch)->fs == pSearch)
-				{
-					parent(pSearch)->fs = NULL;
-				}
-				else
-				{
-					parent(pSearch)->nb = NULL;
-				}
-			}
-		}
-		else
-		{
-			if (fs(pSearch) != NULL && nb(pSearch) == NULL)
-			{
-				if (pSearch == tree->root)
-				{
-					tree->root = fs(pSearch);
-					fs(pSearch)->parent = NULL;
-				}
-				else
-				{
-					if (parent(pSearch)->fs == pSearch)
-					{
-						parent(pSearch)->fs = fs(pSearch);
-						fs(pSearch)->parent = parent(pSearch);
-					}
-					else
-					{
-						parent(pSearch)->nb = fs(pSearch);
-						fs(pSearch)->parent = parent(pSearch);
-					}
-				}
-			}
-			else
-			{
-				if (fs(pSearch) == NULL && nb(pSearch) != NULL)
-				{
-					if (pSearch == tree->root)
-					{
-						tree->root = nb(pSearch);
-						nb(pSearch)->parent = NULL;
-					}
-					else
-					{
-						if (parent(pSearch)->fs == pSearch)
-						{
-							parent(pSearch)->fs = nb(pSearch);
-							nb(pSearch)->parent = parent(pSearch);
-						}
-						else
-						{
-							parent(pSearch)
-								->nb = nb(pSearch);
-							nb(pSearch)->parent = parent(pSearch);
-						}
-					}
-				}
-				else
-				{
-					if (fs(pSearch) != NULL && nb(pSearch) != NULL)
-					{
-						temp = fs(pSearch);
-						while (nb(temp) != NULL)
-						{
-							temp = nb(temp);
-						}
-						if (pSearch == tree->root)
-						{
-							tree->root = temp;
-							temp->parent = NULL;
-						}
-						else
-						{
-							if (parent(pSearch)->fs == pSearch)
-							{
-								parent(pSearch)->fs = temp;
-								temp->parent = parent(pSearch);
-							}
-							else
-							{
-								parent(pSearch)->nb = temp;
-								temp->parent = parent(pSearch);
-							}
-						}
-						pDelete = nb(temp);
-						nb(temp) = NULL;
-						nb(pDelete) = fs(pSearch);
-						fs(pDelete)->parent = pDelete;
-						fs(pSearch) = NULL;
-					}
-				}
-			}
-		}
-	}
+	
 }
 
 void menuHitungAnak(nbAddr treeSilsilahTemp){
