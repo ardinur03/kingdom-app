@@ -2,7 +2,6 @@
 #define display_H
 
 #include"header.h"
-#include <strsafe.h>
 
 void gotoxy(short x, short y);
 void kingDisplay();

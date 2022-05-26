@@ -17,7 +17,6 @@
 int main()
 {
 	ShowWindow(GetConsoleWindow(), SW_MAXIMIZE); // untuk memaxsimalisasi layar
-	setTitleConsole();
 	
 	TreeSilsilah Tree;
 	nbAddr src, deleteNode,PDel;
