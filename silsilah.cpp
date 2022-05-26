@@ -136,7 +136,7 @@ nbAddr Search(nbAddr tr, nbType SQ)
 void InsertSilsilah(nbAddr *tr)
 {
 	TreeSilsilah tRoot;
-	nbAddr TNode = NULL, temp = NULL;
+	nbAddr TNode = NULL, temp = NULL, parentTem = NULL;
 	char jenis_kelamin;
 	int usia;
 	nbType Nama, parent, Agama;
@@ -150,10 +150,46 @@ void InsertSilsilah(nbAddr *tr)
 	{
 		gotoxy(101, 14);
 		printf("Input Anggota Kerajaan ");
-		gotoxy(101, 16);
-		printf("Nama              : ");
-		fflush(stdin);
-		gets(Nama);
+		
+		do{
+			gotoxy(101, 16);
+			printf("Nama              : ");
+			fflush(stdin);
+			gets(Nama);
+
+			// validasi kosong nama
+			if (strlen(Nama) == 0){
+				gotoxy(101, 18);
+				printf("Nama Tidak Boleh Kosong");
+				gotoxy(101, 20);
+				printf("Silahkan Input Kembali");
+				getch();
+				gotoxy(101, 18);
+				printf("                          ");
+				gotoxy(101, 20);
+				printf("                          ");
+			}
+
+			// jika nama sama dengan parent maka tidak bisa input
+			parentTem = Search(*tr, Nama);
+			if (parentTem != NULL){
+				gotoxy(101, 18);
+				printf("Nama Tidak Boleh Sama Dengan Parent");
+				gotoxy(101, 20);
+				printf("Silahkan Input Kembali");
+				getch();
+				gotoxy(101, 18);
+				printf("                                       ");
+				gotoxy(101, 20);
+				printf("                           ");
+				gotoxy(120, 16);
+				printf("                           ");
+
+			}
+		} while (strlen(Nama) == 0 || parentTem != NULL);
+
+		
+
 		do
 		{
 			gotoxy(101, 17);
@@ -243,6 +279,7 @@ void InsertSilsilah(nbAddr *tr)
 		}
 		else
 		{
+			strcpy(Agama, "Protestan");
 			nbInsert(&tRoot, nbSearch(*tr, parent), Nama, jenis_kelamin, usia, Agama); 
 			gotoxy(101, 22);
 			printf("Anggota dengan nama %s berhasil ditambahkan dengan parent %s", Nama, parent);
