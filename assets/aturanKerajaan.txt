@@ -6,19 +6,26 @@
             |X   1. Jika raja wafat, digantikan oleh anak laki-laki       X|
             ++      paling tua                                            ++
             ||   2. Jika raja wafat dan tidak memiliki anak laki laki     ||
-            ||      maka digantikan oleh anak perempuan paling tua        ||
+            ||      maka digantikan oleh anak Pertama raja tersebut       ||
             ||   3. Jika raja tidak punya anak maka tahta digantikan      ||
             ||      oleh :                                                ||
             ||     - pertama, saudara laki - laki paling tua(jika ada)    ||
             ||     - kedua, saudara perempuan paling tua                  ||
             ||   4. Pewaris Kerajaan Harus berjenis kelamin Laki- laki    ||
-            ||   5. Pewaris tahta kerajaan takterkecuali harus beragama   ||
-            ||      Protestan                                             ||
+            ||   5. Anak dari raja atau ratu harus berusia lebih muda 15  ||
+            ||      Tahun                                                 ||
             ||   6. Jika kerajaan dalam keadaaan kosong ada 2 kemungkinan ||
             ||     - Pertama, jika anggota kerajaan tersebut laki laki    ||
             ||       maka akan langsung menjadi raja                      ||
             ||     - Kedua, jika anggota kerajaan tersebut perempuan maka ||
             ||       akan langsung menajadi Ratu                          ||
+            ||   7. Aplikasi ini menggunakan aturan penurunan tahta dan   ||
+            ||      pembunuhan saudara dari raja. Sebagai berikut :       ||
+            ||     - Turunkan tahta raja, berarti dapat menghapus raja    ||
+            ||     - Bunuh Saudara Raja atau selain Raja, berarti         ||
+            ||       node saudara dari raja tersebut atau dapat juga      ||
+            ||       menghapus node keturunan dari saudara raja ataupun   ||
+            ||       keturunan dari raja itu sendiri                      ||
             ||                                                            ||
             |--------------------------------------------------------------|
             |---|X            @copyright Copyright (c) 2022           X|---|

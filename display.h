@@ -3,11 +3,10 @@
 
 #include"header.h"
 
-void gotoxy(short x, short y);
-void kingDisplay();
-void istanaDisplay();
-void boxMenuOutput();
-void aturanDisplay();
-int setTitleConsole();
+void gotoxy(short x, short y); //fungsi untuk mengatur posisi kursor
+void kingDisplay(); // menampilkan Raja kerajaan
+void istanaDisplay(); // menampilkan istana kerajaan
+void boxMenuOutput(); // menampilkan box menu
+void aturanDisplay(); // menampilkan aturan kerajaan
 
 #endif // display_H
