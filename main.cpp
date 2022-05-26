@@ -46,6 +46,8 @@ int main()
 		switch (pil)
 		{
 		case 1:
+			gotoxy(0, 25);
+			cetakSilsilah(Tree.root, str);
 			printf("\n\n");
 			InsertSilsilah(&Tree.root);
 			printf("\n\n");
@@ -59,6 +61,7 @@ int main()
 				getch();
 				break;
 			}
+			gotoxy(0, 17);
 			cetakSilsilah(Tree.root, str);
 			getch();
 			break;

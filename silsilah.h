@@ -4,13 +4,12 @@
 
 int isSilsilahEmpty(nbAddr tr); //cek Tree apakah kosong atau tidak
 void CreateEmptyNode(nbAddr *tr); //membuat node kosong
-void Isi_Node_Silsilah(nbAddr *tr, nbType name, char JK, int US, nbType religion); //mengisi node
 void InsertSilsilah(nbAddr *tr); //menambahkan node ke dalam tree
 nbAddr Search(nbAddr tr,nbType SQ); //untuk mencari node tertentu
 void cetakSilsilah(nbAddr tr, char tab[]); //untuk menampilkan silsilah
 void urutanPewaris(nbAddr tr); //untuk menampilkan urutan pewaris
 void LihatIdentitas(nbAddr tr,nbType data); //untuk menampilkan identitas lengkap dari nama yang dicari
-void nbInsert(TreeSilsilah *tRoot, nbAddr parent, nbType nama_param, char jenis_kelamin_param, int usia_param, nbType religion_param);
+void nbInsert(TreeSilsilah *tRoot, nbAddr parent, nbType nama_param, char jenis_kelamin_param, int usia_param, nbType religion_param); // untuk menambahkan node baru
 nbAddr nbSearch(nbAddr root, nbType nameParam);
 void nbCreate(TreeSilsilah *x); // membuat create anggota kerajaan 
 void nbDelete(nbAddr *pDel, TreeSilsilah *pTree);// Delete sebagai saudara dari raja

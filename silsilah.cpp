@@ -15,26 +15,9 @@
 #include "silsilah.h"
 #include "display.h"
 
-void Create_Node_Tree(nbAddr *tr)
-{
-
-	*tr = (nbAddr)malloc(sizeof(nbTreeNode));
-	if (*tr != Nil)
-	{
-		//		printf("Alokasi Berhasil dengan Alamat : %p.\n",*p);
-	}
-	else
-	{
-		printf("Gagal Alokasi\n");
-	}
-}
 void nbCreate(TreeSilsilah *x)
 {
 	(*x).root = NULL;
-}
-void CreateEmptyNode(nbAddr *tr)
-{
-	Create_Node_Tree(&(*tr));
 }
 
 int isTreeEmpty(nbAddr tr)
@@ -47,23 +30,6 @@ int isSilsilahEmpty(nbAddr tr)
 	return isTreeEmpty(tr);
 }
 
-void Isi_Node_Silsilah(nbAddr *tr, nbType nama, char jenis_kelamin, int usia, nbType religion)
-{
-	if (isSilsilahEmpty(*tr))
-	{
-		printf("Node Belum di Alokasi\n");
-	}
-	else
-	{
-		fs(*tr) = NULL;
-		strcpy(nama(*tr), nama);
-		jenis_kelamin(*tr) = jenis_kelamin;
-		usia(*tr) = usia;
-		strcpy(religion(*tr), religion);
-		nb(*tr) = NULL;
-		parent(*tr) = NULL;
-	}
-}
 // nbType name[], nbType gender, int age, nbType religion[]
 nbAddr nbCNode(nbType nama, char jenis_kelamin, int usia, nbType religion_param)
 { // Create New Node
@@ -169,12 +135,11 @@ nbAddr Search(nbAddr tr, nbType SQ)
 
 void InsertSilsilah(nbAddr *tr)
 {
+	TreeSilsilah tRoot;
 	nbAddr TNode = NULL, temp = NULL;
 	char jenis_kelamin;
 	int usia;
 	nbType Nama, parent, Agama;
-
-	CreateEmptyNode(&TNode);
 
 	if (isSilsilahEmpty(*tr))
 	{
@@ -222,6 +187,9 @@ void InsertSilsilah(nbAddr *tr)
 				jenis_kelamin_valid = true;
 				gotoxy(101, 18);
 				printf("usia          : ");
+				gotoxy(121, 18);
+				printf("   ");
+
 			}
 			else
 			{
@@ -234,7 +202,6 @@ void InsertSilsilah(nbAddr *tr)
 			gotoxy(101, 19);
 			printf("usia tidak boleh lebih kecil dari 11");
 		}
-		Isi_Node_Silsilah(&TNode, Nama, jenis_kelamin, usia, Agama);
 		do
 		{
 			gotoxy(101, 20);
@@ -273,33 +240,20 @@ void InsertSilsilah(nbAddr *tr)
 		{ // rumus usia parent di kurangi usia inpputan dan bandingkan lebih kecil sama dengan 15
 			gotoxy(101, 21);
 			printf("Usia tidak boleh lebih kecil 15 tahun dari usia parent ! %d", usia(temp));
-
 		}
 		else
 		{
-			if (fs(temp) != NULL)
-			{
-				temp = fs(temp);
-				while (nb(temp) != NULL)
-					temp = nb(temp);
-				parent(TNode) = parent(temp);
-				nb(temp) = TNode;
-			}
-			else
-			{
-				parent(TNode) = temp;
-				fs(temp) = TNode;
-			}
+			nbInsert(&tRoot, nbSearch(*tr, parent), Nama, jenis_kelamin, usia, Agama); 
 			gotoxy(101, 22);
-			printf("Node dengan nama %s berhasil ditambahkan dengan parent %s", Nama, parent);
+			printf("Anggota dengan nama %s berhasil ditambahkan dengan parent %s", Nama, parent);
 		}
 	}
 }
 
 // pre-order
-int iterasi = 20;
 void cetakSilsilah(nbAddr tr, char tab[])
 {
+	int i = 1;
 	char tempTab[255];
 	strcpy(tempTab, tab);
 	strcat(tempTab, "-");
@@ -308,9 +262,7 @@ void cetakSilsilah(nbAddr tr, char tab[])
 		// root node jangan di tampilkan
 		if (strcmp(nama(tr), "root") != 0)
 		{
-			gotoxy(100, iterasi);
-			printf("%s%s\n", tab, tr->nama);
-			iterasi = iterasi + 1;
+			printf("\t\t\t\t\t\t\t\t\t\t\t\t\t  %s%s\n", tab, tr->nama);
 		}
 		cetakSilsilah(tr->fs, tempTab);
 		cetakSilsilah(tr->nb, tab);
